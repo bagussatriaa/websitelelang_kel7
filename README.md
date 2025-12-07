@@ -1,4 +1,4 @@
-# 💎 EMERALD KINGDOM - ULTIMATE AUCTION PLATFORM
+# 👑 TAWARAJA
 
 Website simulasi pelelangan barang mewah berbasis web (Client-Side).
 Dibangun dengan HTML5, CSS3 (Glassmorphism), dan Vanilla JavaScript (LocalStorage Database).
