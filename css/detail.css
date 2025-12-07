@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --emerald: #0b3d2e;
+    --gold: #d4af37;
+    --blue: #0a1f44;
+    --white: #f4f4f4;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(120deg, var(--blue), var(--emerald));
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+nav a {
+    color: var(--white);
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* SECTION */
+.section {
+    padding: 70px 0;
+}
+
+/* IMAGE */
+.image-box img {
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+}
+
+/* INFO */
+.product-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 38px;
+}
+
+.product-category {
+    opacity: 0.8;
+}
+
+.price span {
+    color: var(--gold);
+}
+
+.desc {
+    line-height: 1.6;
+    margin: 20px 0;
+    opacity: .9;
+}
+
+.details-list {
+    list-style: none;
+    padding: 0;
+}
+
+.details-list li {
+    margin-bottom: 8px;
+}
+
+/* BID */
+.bid-box label {
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-control {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--gold);
+    color: white;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+.timer span {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* OTHER CARDS */
+.card {
+    background: rgba(0,0,0,0.5);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border: 1px solid var(--gold);
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card span {
+    color: var(--gold);
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    color: #aaa;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upgrade Class</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/class.css">
+</head>
+<body>
+
+<div class="modal fade" id="showToast" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-warning">
+      
+      <div class="modal-header border-warning">
+        <h5 class="modal-title text-warning" id="alertTitle">Info</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body" id="alertMessage">
+        Pesan muncul di sini
+      </div>
+
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Oke</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<header class="d-flex justify-content-between align-items-center px-5 py-4 border-bottom">
+  <div class="logo">TawarRaja</div>
+
+  <nav>
+    <a href="index.html" class="me-4 text-decoration-none">Home</a>
+    <a href="category.html" class="me-4 text-decoration-none">Categories</a>
+    <a href="class.html" class="text-decoration-none text-warning fw-bold">Upgrade</a>
+  </nav>
+</header>
+
+<section class="container text-center mt-5">
+
+  <h1 class="mb-2">Your Class Determines Your Power</h1>
+  <p class="text-muted mb-5">
+    Naik kelas = lebih banyak akses = makin dekat jadi sultan lelang 🥂
+  </p>
+
+  <p class="current-class mb-5">
+    Current Status: <span class="text-warning fw-bold">Pedagang</span>
+  </p>
+
+  <div class="row g-4 justify-content-center">
+
+    <!-- PEDEGANG -->
+    <div class="col-md-4">
+      <div class="class-card active">
+        <h3>Pedagang</h3>
+        <p class="price">FREE</p>
+
+        <ul>
+          <li>Maks 3 lelang aktif</li>
+          <li>Akses Dasar</li>
+          <li>Tanpa badge</li>
+        </ul>
+
+        <button class="btn btn-outline-warning w-100 mt-3" disabled>
+          Current Class
+        </button>
+      </div>
+    </div>
+
+    <!-- PRAJURIT -->
+    <div class="col-md-4">
+      <div class="class-card">
+        <h3>Prajurit ⚔️</h3>
+        <p class="price">Rp 39.000</p>
+
+        <ul>
+          <li>Maks 10 lelang aktif</li>
+          <li>Akses kategori premium</li>
+          <li>Badge khusus</li>
+        </ul>
+
+        <button class="btn btn-warning w-100 mt-3" onclick="upgrade('Prajurit')">
+          Upgrade
+        </button>
+      </div>
+    </div>
+
+    <!-- BANGSAWAN -->
+    <div class="col-md-4">
+      <div class="class-card elite">
+        <h3>Bangsawan 👑</h3>
+        <p class="price">Rp 99.000</p>
+
+        <ul>
+          <li>Unlimited lelang</li>
+          <li>Akses eksklusif VIP</li>
+          <li>Highlight nama</li>
+        </ul>
+
+        <button class="btn btn-warning w-100 mt-3" onclick="upgrade('Bangsawan')">
+          Upgrade
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="text-center py-4 mt-5 border-top">
+  <p>© 2025 TawarRaja — Level up your bid 👑</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function upgrade(className) {
+  const modal = new bootstrap.Modal(document.getElementById('showToast'));
+
+  const title = document.getElementById("alertTitle");
+  const message = document.getElementById("alertMessage");
+
+  if (className === "Prajurit") {
+    title.innerText = "⚔️ Upgrade Berhasil!";
+    message.innerHTML = `
+      Selamat, kamu resmi jadi <b>Prajurit</b> sekarang.<br>
+    `;
+  } 
+  
+  else if (className === "Bangsawan") {
+    title.innerText = "👑 Gelar Bangsawan Diperoleh!";
+    message.innerHTML = `
+      Hormat, Yang Mulia… 👑<br>
+      Anggap seperti istana pribadi, yang mulia.
+    `;
+  }
+
+  modal.show();
+}
+</script>
+
+
+</body>
+</html>

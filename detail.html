@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auction Detail</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+<div class="modal fade" id="alertModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-warning">
+      
+      <div class="modal-header border-warning">
+        <h5 class="modal-title text-warning" id="alertTitle">Info</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body" id="alertMessage">
+        Pesan muncul di sini
+      </div>
+
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Oke</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<header class="d-flex justify-content-between align-items-center px-5 py-4 border-bottom">
+    <div class="logo">TawarRaja</div>
+
+    <nav>
+        <a href="index.html" class="me-4 text-decoration-none">Home</a>
+        <a href="category.html" class="me-4 text-decoration-none">Categories</a>
+        <a href="#" class="text-decoration-none">Profile</a>
+    </nav>
+</header>
+
+<div class="container section">
+
+    <div class="row g-5 align-items-center">
+
+        <!-- IMAGE -->
+        <div class="col-md-6">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1493238792000-8113da705763" class="img-fluid rounded">
+            </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="col-md-6">
+            <h1 class="product-title">Lamborghini Aventador</h1>
+            <p class="product-category">Kategori: Kendaraan Premium</p>
+
+            <hr>
+
+            <h2 class="price">Current Bid: <span id="highestBid">Rp 4.500.000.000</span></h2>
+
+            <p class="desc">
+                Supercar edisi terbatas dengan performa brutal dan desain agresif. 
+                Unit super rare, kondisi seperti baru. Cocok untuk kolektor kelas sultan.
+            </p>
+
+            <ul class="details-list">
+                <li>📌 Tahun: 2022</li>
+                <li>📌 Mesin: V12</li>
+                <li>📌 Km: 1.200 km</li>
+                <li>📌 Lokasi: Jakarta</li>
+            </ul>
+
+            <div class="bid-box mt-4">
+                <label>Masukkan Tawaranmu, Yang Mulia:</label>
+                <input type="number" id="bidInput" class="form-control my-2" placeholder="Rp ....">
+                <button onclick="submitBid()" class="btn btn-warning w-100 mt-2">Place Bid</button>
+            </div>
+
+            <div class="timer mt-4">
+                ⏳ Auction ends in: <span>02 : 34 : 56</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- OTHER ITEMS -->
+    <div class="mt-5">
+        <h3 class="mb-4">Other Elite Auctions</h3>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1602524819187-2fbe5cfe33af">
+                    <div class="p-3">
+                        <h5>Antique Rolex 1943</h5>
+                        <span>Rp 870.000.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
+                    <div class="p-3">
+                        <h5>Luxury Mansion</h5>
+                        <span>Rp 18.200.000.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1590608897129-79da98d159ab">
+                    <div class="p-3">
+                        <h5>Limited Gold Edition</h5>
+                        <span>Rp 1.150.000.000</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer class="text-center py-4 mt-5">
+    <p>© 2025 AUCTORIA — Power, Prestige, Possession</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const modal = new bootstrap.Modal(document.getElementById('alertModal'));
+
+  function showAlert(title, message){
+    document.getElementById("alertTitle").innerText = title;
+    document.getElementById("alertMessage").innerText = message;
+    modal.show();
+  }
+
+  function submitBid() {
+    const bidInput = document.getElementById('bidInput');
+    const highestBid = document.getElementById('highestBid');
+
+    let current = parseInt(highestBid.innerText.replace(/\D/g, ""));
+    let userBid = parseInt(bidInput.value);
+
+    if (!userBid) {
+        showAlert("Gagal Yang Mulia", "Masukkan nominal dulu, Yang Mulia");
+        return;
+    }
+
+    if (userBid <= current) {
+        showAlert("Terlalu kecil, Yang Mulia", "Tambahin lagi....");
+    } else {
+        highestBid.innerText = "Rp " + userBid.toLocaleString("id-ID");
+        showAlert("Berhasil Yang Mulia👑", "Saat ini kamu rajanya di lelang ini");
+        bidInput.value = "";
+    }
+  }
+</script>
+
+
+
+</body>
+</html>

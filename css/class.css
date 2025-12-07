@@ -1,0 +1,88 @@
+body {
+  background: #0f172a;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #facc15;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: #facc15;
+}
+
+h1 {
+  color: #facc15;
+}
+
+.class-card {
+  background: #1e293b;
+  padding: 30px 20px;
+  border-radius: 16px;
+  border: 1px solid #334155;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.class-card:hover {
+  transform: translateY(-8px);
+  border-color: #facc15;
+}
+
+.class-card h3 {
+  color: #facc15;
+  margin-bottom: 10px;
+}
+
+.class-card .price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.class-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.class-card ul li {
+  margin: 10px 0;
+}
+
+.active {
+  border: 2px solid #facc15;
+  background: #111827;
+}
+
+.elite {
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
+}
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #111;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: 0.4s ease;
+  z-index: 9999;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

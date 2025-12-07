@@ -1,0 +1,44 @@
+/* css/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --emerald: #0b3d2e;
+    --gold: #d4af37;
+    --blue: #0a1f44;
+    --white: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background: linear-gradient(120deg, var(--blue), var(--emerald));
+    color: var(--white);
+    font-family: 'Poppins', sans-serif; */
+    background-color: red;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--white);
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}

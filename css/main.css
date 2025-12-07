@@ -1,0 +1,390 @@
+/* ==========================================================================
+   💎 EMERALD KINGDOM - MASTER STYLESHEET (ULTIMATE EDITION)
+   Theme: Dark Luxury, Glassmorphism, Gold Accents
+   ========================================================================== */
+
+/* --- 1. VARIABLES & PALETTE (DNA KERAJAAN) --- */
+:root {
+    /* Backgrounds: Deep Black to Emerald */
+    --bg-deep: #020202;
+    --bg-card: rgba(20, 20, 20, 0.6);
+    --bg-glass: rgba(255, 255, 255, 0.03);
+    
+    /* Gradients */
+    --bg-gradient: radial-gradient(circle at top center, #051a12 0%, #000000 80%);
+    --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --gold-dark-gradient: linear-gradient(135deg, #8a7018, #d4af37);
+    
+    /* Solid Colors */
+    --gold-primary: #d4af37;
+    --gold-light: #f2d06b;
+    --gold-dim: #8a7018;
+    --emerald-glow: #00ff88;
+    --emerald-dark: #054d36;
+    --text-muted: #a0a0a0;
+    
+    /* Spacing & Layout */
+    --container-width: 1280px;
+    --header-height: 70px;
+    --border-radius: 12px;
+    
+    /* Effects */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.2);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* --- 2. RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-deep);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed; /* Background diam saat scroll */
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar (Mewah) */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { 
+    background: linear-gradient(to bottom, #333, var(--gold-dark)); 
+    border-radius: 4px; 
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+
+/* --- 3. TYPOGRAPHY --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* Text Utilities */
+.text-gold {
+    background: var(--gold-gradient);
+    /* -webkit-background-clip: text; */
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    font-weight: 800;
+}
+
+/* --- 4. LAYOUT UTILITIES --- */
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.section-container {
+    padding: 80px 0;
+}
+
+/* Panel Kaca (Reusable Component) */
+.glass-panel {
+    background: var(--bg-glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+}
+
+/* --- 5. HEADER & NAVIGATION --- */
+header {
+    height: var(--header-height);
+    background: rgba(2, 2, 2, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav a:hover, nav a.active { color: white; }
+
+nav a::after {
+    content: '';
+    position: absolute; width: 0; height: 2px;
+    bottom: 0; left: 0;
+    background: var(--gold-primary);
+    transition: 0.3s;
+}
+nav a:hover::after { width: 100%; }
+
+/* --- 6. BUTTONS (THE GOLD STANDARD) --- */
+.btn-gold {
+    background: var(--gold-gradient);
+    border: none;
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-gold:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+    filter: brightness(1.1);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--gold-primary);
+    color: black;
+    box-shadow: 0 0 15px var(--gold-primary);
+}
+
+/* --- 7. GRID SYSTEM (PERBAIKAN UTAMA) --- */
+/* Ini yang membuat tampilan rapi dan tidak nabrak */
+
+.auction-grid {
+    display: grid;
+    /* Responsive Magic: Kartu minimal 280px, max sepuasnya */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px; /* Jarak antar kartu */
+    margin-top: 40px;
+}
+
+.auction-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column; /* Susun atas ke bawah */
+    height: 100%; /* Paksa tinggi sama rata */
+}
+
+.auction-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--gold-primary);
+}
+
+/* Image Area */
+.card-image-box {
+    height: 220px; /* Tinggi gambar fix */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    border-bottom: 1px solid #222;
+}
+
+.card-image-box img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.auction-card:hover .card-image-box img { transform: scale(1.1); }
+
+/* Badges */
+.card-badge {
+    position: absolute; top: 12px; right: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px;
+    z-index: 2;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.badge-vip { background: gold; color: black; }
+.badge-vvip { background: #ff4500; color: white; }
+.badge-live { background: #ff0000; color: white; animation: pulseRed 2s infinite; }
+
+/* Info Content Area */
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Isi ruang sisa agar footer terdorong ke bawah */
+    gap: 10px;
+}
+
+.card-cat {
+    color: var(--emerald-glow);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin: 0;
+    color: white;
+    /* Batasi judul max 2 baris agar rapi */
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.4em; /* Tinggi minimum untuk judul */
+}
+
+/* Footer (Harga & Tombol) */
+.card-footer {
+    margin-top: auto; /* KUNCI RAPI: Dorong ke paling bawah */
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.card-price-label { font-size: 0.75rem; color: #888; display: block; margin-bottom: 4px; }
+.card-price { 
+    font-size: 1.3rem; 
+    color: var(--gold-primary); 
+    font-weight: 800; 
+    margin-bottom: 15px; 
+}
+
+/* Tombol Card (Full Width) */
+.btn-card-action {
+    width: 100%;
+    padding: 12px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.btn-card-action:hover {
+    background: var(--gold-primary);
+    color: black;
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* --- 8. HERO & SECTIONS --- */
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block; width: 60px; height: 3px;
+    background: var(--gold-primary);
+    margin-top: 10px;
+}
+
+/* --- 9. ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 0.8s ease-out forwards; }
+
+@keyframes pulseRed {
+    0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+.loader-diamond {
+    width: 40px; height: 40px;
+    background: var(--emerald-glow);
+    transform: rotate(45deg);
+    animation: pulseDiamond 1.5s infinite;
+}
+@keyframes pulseDiamond {
+    0%, 100% { transform: rotate(45deg) scale(0.8); opacity: 0.5; }
+    50% { transform: rotate(45deg) scale(1.1); opacity: 1; box-shadow: 0 0 20px var(--emerald-glow); }
+}
+
+/* --- 10. RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+    .container { width: 95%; }
+    .auction-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
+    .hero h1 { font-size: 2.5rem; }
+}
+
+@media (max-width: 600px) {
+    header { height: auto; padding: 15px 0; }
+    .nav-container { flex-direction: column; gap: 15px; }
+    nav ul { gap: 15px; font-size: 0.8rem; }
+    .auction-grid { grid-template-columns: 1fr; } /* 1 kolom di HP */
+}

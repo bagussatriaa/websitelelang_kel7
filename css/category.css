@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --emerald: #0b3d2e;
+    --gold: #d4af37;
+    --blue: #0a1f44;
+    --white: #f4f4f4;
+}
+
+/* RESET */
+body {
+    background: linear-gradient(120deg, var(--blue), var(--emerald));
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER */
+header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+nav a {
+    color: var(--white);
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* HERO */
+.hero {
+    padding: 90px 20px 60px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 48px;
+}
+
+.hero p {
+    opacity: 0.85;
+}
+
+/* SECTION */
+.section h2 {
+    letter-spacing: 3px;
+}
+
+/* CARD */
+.card {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border: 1px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.card span {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    color: #aaa;
+}

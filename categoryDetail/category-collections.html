@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Category - Auction</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Category CSS -->
+  <link rel="stylesheet" href="../css/category-detail.css">
+</head>
+<body>
+
+<header class="d-flex justify-content-between align-items-center px-5 py-4 border-bottom">
+  <div class="logo">TawarRaja</div>
+
+  <nav>
+    <a href="home.html" class="me-4 text-decoration-none">Home</a>
+    <a href="category.html" class="me-4 text-decoration-none text-warning">Categories</a>
+    <a href="#" class="text-decoration-none">Profile</a>
+  </nav>
+</header>
+
+<section class="container py-5">
+
+  <!-- Category Title -->
+  <h2 class="category-title mb-4">Kategori: Koleksi</h2>
+    <div class="card p-4 mb-5 shadow-sm">
+            <h4 class="mb-3">Tambah Barang Lelang</h4>
+            <input type="text" id="itemName" class="form-control mb-2" placeholder="Nama barang">
+            <input type="number" id="itemPrice" class="form-control mb-2" placeholder="Harga">
+            <input type="text" id="itemImage" class="form-control mb-3" placeholder="Link gambar (URL)">
+
+            <button onclick="addItem()" class="btn btn-warning w-100">Tambah ke Lelang</button>
+        </div>
+  <!-- FILTER (Optional tapi bikin keliatan pro) -->
+  <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <!-- <p>Menampilkan barang lelang premium pilihan Sultan 👑</p> -->
+    
+    <select class="form-select w-auto">
+      <option>Urutkan berdasarkan: Termahal</option>
+      <option>Urutkan berdasarkan: Terbaru</option>
+      <option>Urutkan berdasarkan: Akan Berakhir</option>
+    </select>
+  </div>
+
+  <!-- GRID ITEMS -->
+  <div class="row g-4" id="auctionList"> 
+
+  </div>
+</section>
+
+<footer class="text-center py-4 mt-5">
+  <p>© 2025 AUCTORIA — Power, Prestige, Possession</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const auctionItems = [
+  {
+    title: "Bangunan Yunani",
+    price: 30000000,
+    image: "https://th.bing.com/th/id/OIP.UCO8lYEjKqnsI7i4ChFa2QHaE8?w=234&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.5&pid=1.7&rm=3&ucfimg=1"
+  }
+];
+
+const auctionList = document.getElementById("auctionList");
+
+function renderItems() {
+  auctionList.innerHTML = "";
+
+  auctionItems.forEach((item, index) => {
+    const col = document.createElement("div");
+    col.className = "col-md-4";
+
+    col.innerHTML = `
+      <div class="card h-100 shadow-sm">
+        <img src="${item.image}" class="card-img-top" style="height:200px; object-fit:cover;">
+        <div class="card-body">
+          <h5 class="card-title">${item.title}</h5>
+          <p class="fw-bold text-success">
+            Rp ${item.price.toLocaleString("id-ID")}
+          </p>
+
+          <button onclick="removeItem(${index})" class="btn btn-outline-danger btn-sm w-100 mb-2">
+            Hapus
+          </button>
+
+          <a href="../detail.html" class="btn btn-warning w-100">
+            Lihat Detail
+          </a>
+        </div>
+      </div>
+    `;
+
+    auctionList.appendChild(col);
+  });
+}
+
+function addItem() {
+  const name = document.getElementById("itemName").value;
+  const price = document.getElementById("itemPrice").value;
+  const image = document.getElementById("itemImage").value;
+
+  if (!name || !price || !image) {
+    alert("Isi semua dulu, Yang Mulia");
+    return;
+  }
+
+  auctionItems.push({
+    title: name,
+    price: parseInt(price),
+    image: image
+  });
+
+  document.getElementById("itemName").value = "";
+  document.getElementById("itemPrice").value = "";
+  document.getElementById("itemImage").value = "";
+
+  renderItems();
+}
+
+function removeItem(index){
+  auctionItems.splice(index,1);
+  renderItems();
+}
+
+// pertama kali load
+renderItems();
+
+</script>
+
+
+</body>
+</html>
